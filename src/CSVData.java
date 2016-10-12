@@ -17,7 +17,7 @@ public class CSVData {
 	 */
 	public CSVData readCSVFile (String filename, int numLinesToIgnore){
 		
-		CSVData out = new CSVData(filename,numlinesToIgnore,)
+		//CSVData out = new CSVData(filename,numlinesToIgnore,)
 		
 		
 		return null;
@@ -28,7 +28,7 @@ public class CSVData {
 	 * @return requested row
 	 */
 	public double[] getRow(int rowIndex){
-		return null;
+		return this.data[rowIndex];
 	}
 	/***
 	 * returns a requested column
@@ -36,7 +36,11 @@ public class CSVData {
 	 * @return requested column
 	 */
 	public double [] getColumn(int colIndex){
-		return null;
+		double[] out=new double[data.length];
+		for (int i = 0; i<out.length;i++){
+			out[i]=this.data[i][colIndex];
+		}
+		return out;
 	}
 	/***
 	 * returns multiple rows from an int array of their indexes
@@ -44,16 +48,23 @@ public class CSVData {
 	 * @return rows requested by the user
 	 */
 	public double[][] getRows(int []rowsRequested){
-		return null;
+		double[][] out=new double[rowsRequested.length][this.data.length];
+		for (int i = 0; i < rowsRequested.length; i++){
+			out[i]=this.data[i];
+		}
+		return out;
 	}
 	/***
 	 * returns multiple columns from an int array of their indexes
 	 * @param columnsRequested
 	 * @return
 	 */
-	public double [][] getColumns(int []columnsRequested){
-		return null;
-	}
+	public double [][] getColumns(int []colsRequested){
+		double[][] out=new double[colsRequested.length][this.data.length];//here;
+		for (int i = 0; i < colsRequested.length; i++){
+			out[i]=this.data[i];
+		}
+		return out;	}
 	/***
 	 * sets the value of a data point
 	 * @param row
